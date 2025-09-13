@@ -1,11 +1,20 @@
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
-  apiVersion: '2025-08-27.basil',
-});
-
 export async function POST(request: Request) {
+  // Initialize Stripe inside the handler to avoid build-time errors
+  const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+
+  if (!stripeSecretKey) {
+    return NextResponse.json(
+      { error: 'Stripe is not configured. Please add STRIPE_SECRET_KEY to your environment variables.' },
+      { status: 500 }
+    );
+  }
+
+  const stripe = new Stripe(stripeSecretKey, {
+    apiVersion: '2025-08-27.basil',
+  });
   try {
     const body = await request.json();
     const { registration, packageId, package: selectedPackage } = body;
