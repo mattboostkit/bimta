@@ -106,7 +106,7 @@ export default function MileageCheckPage() {
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Vehicle Mileage Check</h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Get instant, comprehensive vehicle history reports from the UK's most trusted source
+              Get instant, comprehensive vehicle history reports from the UK&apos;s most trusted source
             </p>
           </motion.div>
         </div>
@@ -121,7 +121,7 @@ export default function MileageCheckPage() {
                 <h3 className="font-semibold text-blue-900 mb-2">Why check vehicle mileage?</h3>
                 <p className="text-blue-800">
                   One in three used cars has a discrepancy in its recorded mileage. Our comprehensive checks help you avoid
-                  costly mistakes by verifying the vehicle's true history, outstanding finance, and any hidden issues.
+                  costly mistakes by verifying the vehicle&apos;s true history, outstanding finance, and any hidden issues.
                 </p>
               </div>
             </div>
