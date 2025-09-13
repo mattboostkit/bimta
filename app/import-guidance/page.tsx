@@ -1,18 +1,9 @@
 'use client';
 
-import { useState, Suspense } from 'react';
-import dynamic from 'next/dynamic';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FileText, CheckCircle, AlertCircle, PoundSterling, Car, Shield, HelpCircle } from 'lucide-react';
-
-// Dynamic import Tabs to avoid SSR issues
-const Tabs = dynamic(
-  () => import('@radix-ui/react-tabs'),
-  {
-    ssr: false,
-    loading: () => <div className="h-96 flex items-center justify-center">Loading...</div>
-  }
-);
+import * as Tabs from '@radix-ui/react-tabs';
 
 function ImportGuidanceContent() {
   const [activeTab, setActiveTab] = useState('overview');
@@ -457,13 +448,5 @@ function ImportGuidanceContent() {
 }
 
 export default function ImportGuidancePage() {
-  return (
-    <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-lg text-gray-600">Loading...</div>
-      </div>
-    }>
-      <ImportGuidanceContent />
-    </Suspense>
-  );
+  return <ImportGuidanceContent />;
 }
