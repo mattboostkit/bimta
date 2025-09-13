@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { CheckCircle, Shield, Users, FileText, ChevronRight, Car, Clock, Award } from 'lucide-react';
+import { CheckCircle, Shield, Users, FileText, ChevronRight, Car } from 'lucide-react';
 
 export default function Home() {
   const features = [

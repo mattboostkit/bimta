@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Search, MapPin, Phone, Mail, Globe, Star, Filter, Building2, Users, Shield, Award, Wrench, Truck, Settings } from 'lucide-react';
+import { Search, MapPin, Phone, Globe, Star, Filter, Building2, Users, Shield, Award, Wrench, Truck, Settings } from 'lucide-react';
 import { getAllMembers, getUniqueCategories, getUniqueRegions, getUniqueServices } from '@/lib/members';
 import { Member } from '@/types/member';
 

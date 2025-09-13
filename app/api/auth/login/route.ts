@@ -1,18 +1,18 @@
 import { NextResponse } from 'next/server';
-import bcrypt from 'bcryptjs';
+// import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-in-production';
 
-const mockUsers = [
-  {
-    id: '1',
-    email: 'demo@bimta.co.uk',
-    password: '$2a$10$YourHashedPasswordHere',
-    businessName: 'Demo Dealer',
-    type: 'dealer',
-  },
-];
+// const mockUsers = [
+//   {
+//     id: '1',
+//     email: 'demo@bimta.co.uk',
+//     password: '$2a$10$YourHashedPasswordHere',
+//     businessName: 'Demo Dealer',
+//     type: 'dealer',
+//   },
+// ];
 
 export async function POST(request: Request) {
   try {

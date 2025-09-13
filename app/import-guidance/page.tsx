@@ -3,7 +3,7 @@
 import { useState, Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
-import { FileText, CheckCircle, AlertCircle, Clock, PoundSterling, Car, Shield, HelpCircle } from 'lucide-react';
+import { FileText, CheckCircle, AlertCircle, PoundSterling, Car, Shield, HelpCircle } from 'lucide-react';
 
 // Dynamic import Tabs to avoid SSR issues
 const Tabs = dynamic(
@@ -164,7 +164,7 @@ function ImportGuidanceContent() {
                       Importing Vehicles to the UK
                     </h2>
                     <p className="text-gray-600 mb-4">
-                      Whether you're importing a vehicle from the EU or elsewhere, understanding the UK's
+                      Whether you&apos;re importing a vehicle from the EU or elsewhere, understanding the UK&apos;s
                       import regulations is crucial for a smooth process. Our comprehensive guide covers
                       everything from initial checks to final registration.
                     </p>
@@ -234,7 +234,7 @@ function ImportGuidanceContent() {
                             </li>
                             <li className="flex items-start">
                               <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 mr-2" />
-                              <span className="text-gray-700">Verify vehicle hasn't been stolen or written off</span>
+                              <span className="text-gray-700">Verify vehicle hasn&apos;t been stolen or written off</span>
                             </li>
                             <li className="flex items-start">
                               <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 mr-2" />

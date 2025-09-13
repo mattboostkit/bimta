@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Send, Award, Users, Calendar, Target } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, Award, Users, Target } from 'lucide-react';
 
 export default function AboutPage() {
   const [formData, setFormData] = useState({
@@ -40,7 +40,7 @@ export default function AboutPage() {
       } else {
         setSubmitStatus('error');
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -105,7 +105,7 @@ export default function AboutPage() {
                 to provide independent motor traders with the tools and services they need to operate with confidence.
               </p>
               <p className="text-lg text-gray-600 mb-4">
-                Over nearly three decades, we've built a reputation for accuracy, reliability, and exceptional service.
+                Over nearly three decades, we&apos;ve built a reputation for accuracy, reliability, and exceptional service.
                 Our comprehensive vehicle checking services have become the industry standard, trusted by thousands of dealers across the UK.
               </p>
               <p className="text-lg text-gray-600">
@@ -168,7 +168,7 @@ export default function AboutPage() {
             >
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Get in Touch</h2>
               <p className="text-lg text-gray-600 mb-8">
-                Have questions about our services? We're here to help. Contact us using the form or the details below.
+                Have questions about our services? We&apos;re here to help. Contact us using the form or the details below.
               </p>
 
               <div className="space-y-4">
@@ -186,7 +186,7 @@ export default function AboutPage() {
                   <div className="ml-4">
                     <h3 className="font-semibold text-gray-900">Email</h3>
                     <p className="text-gray-600">info@bimta.co.uk</p>
-                    <p className="text-sm text-gray-500">We'll respond within 24 hours</p>
+                    <p className="text-sm text-gray-500">We&apos;ll respond within 24 hours</p>
                   </div>
                 </div>
 

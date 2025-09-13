@@ -38,7 +38,7 @@ export default function SuccessPage() {
               </li>
               <li className="flex items-start">
                 <span className="mr-2">2.</span>
-                You'll receive an email with your report within 5 minutes
+                You&apos;ll receive an email with your report within 5 minutes
               </li>
               <li className="flex items-start">
                 <span className="mr-2">3.</span>
