@@ -1,237 +1,270 @@
 'use client';
 
-import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
-import { CheckCircle, Shield, Users, FileText, ChevronRight, Car } from 'lucide-react';
+import { CheckCircle, Shield, Users, FileText, ChevronRight, Car, TrendingUp, Award, Globe } from 'lucide-react';
+import PremiumButton from '@/components/ui/PremiumButton';
+import AnimatedCard from '@/components/ui/AnimatedCard';
+
+// Dynamic imports for better performance
+const HeroSection = dynamic(() => import('@/components/sections/HeroSection'), {
+  loading: () => <div className="min-h-screen bg-gradient-to-br from-blue-950 via-blue-900 to-cyan-900" />,
+});
+
+const VehicleCheckWidget = dynamic(() => import('@/components/sections/VehicleCheckWidget'));
+const TestimonialsSection = dynamic(() => import('@/components/sections/TestimonialsSection'));
 
 export default function Home() {
   const features = [
     {
       icon: CheckCircle,
       title: 'Accurate Mileage Checks',
-      description: 'Comprehensive vehicle history and mileage verification from trusted sources',
+      description: 'AI-powered verification system with 99.9% accuracy from multiple trusted sources',
+      color: 'from-green-500 to-emerald-500',
     },
     {
       icon: Shield,
       title: 'Trusted by Dealers',
-      description: 'Industry-leading verification services used by thousands of UK dealers',
+      description: 'Industry-leading protection with comprehensive insurance and warranty options',
+      color: 'from-blue-500 to-indigo-500',
     },
     {
       icon: Users,
-      title: 'Dealer Network',
-      description: 'Access our extensive network of verified independent motor traders',
+      title: 'Elite Dealer Network',
+      description: 'Connect with 10,000+ verified premium motor trade professionals',
+      color: 'from-purple-500 to-pink-500',
     },
     {
       icon: FileText,
-      title: 'Import Guidance',
-      description: 'Expert guidance on vehicle import registration and compliance',
+      title: 'Import Excellence',
+      description: 'Complete import solutions with legal compliance and documentation',
+      color: 'from-orange-500 to-red-500',
     },
   ];
 
-  const stats = [
-    { value: '10,000+', label: 'Verified Dealers' },
-    { value: '500,000+', label: 'Checks Performed' },
-    { value: '99.9%', label: 'Accuracy Rate' },
-    { value: '24/7', label: 'Support Available' },
+  const services = [
+    {
+      title: 'Premium Vehicle Checks',
+      price: 'From £9.99',
+      features: [
+        'Full HPI equivalent check',
+        'Live DVLA data',
+        'Finance verification',
+        'Stolen vehicle database',
+        'Insurance write-off check',
+        'Mileage anomaly detection',
+      ],
+      icon: Car,
+      popular: true,
+    },
+    {
+      title: 'Dealer Membership',
+      price: 'From £49/month',
+      features: [
+        'Unlimited basic checks',
+        'Priority support',
+        'Marketing tools',
+        'Legal helpline',
+        'Trade insurance discounts',
+        'Network access',
+      ],
+      icon: Award,
+    },
+    {
+      title: 'Import Services',
+      price: 'Custom Quote',
+      features: [
+        'NOVA declarations',
+        'IVA test booking',
+        'Registration support',
+        'Customs clearance',
+        'Transport arrangement',
+        'Documentation service',
+      ],
+      icon: Globe,
+    },
   ];
 
   return (
-    <div>
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-700 text-white">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+    <div className="overflow-x-hidden">
+      <HeroSection />
+
+      {/* Premium Features Section */}
+      <section className="py-20 bg-gradient-to-b from-white to-gray-50 relative">
+        <div className="absolute inset-0 grid-pattern opacity-5"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              British Independent Motor Trade Association
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100">
-              Your trusted partner for vehicle verification and motor trade services
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/mileage-check"
-                className="inline-flex items-center px-8 py-4 bg-white text-blue-900 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
-              >
-                Order Mileage Check
-                <ChevronRight className="ml-2 h-5 w-5" />
-              </Link>
-              <Link
-                href="/members-directory"
-                className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-900 transition-colors"
-              >
-                Browse Members
-                <ChevronRight className="ml-2 h-5 w-5" />
-              </Link>
+            <div className="inline-block badge-premium mb-4">
+              Industry Leading Platform
             </div>
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose BIMTA?
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Why <span className="gradient-blue">BIMTA Leads</span> the Industry
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We provide comprehensive vehicle verification services and support for the UK motor trade industry
+              Cutting-edge technology meets decades of expertise to deliver unmatched vehicle verification services
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 * index }}
-                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <feature.icon className="h-12 w-12 text-blue-900 mb-4" />
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </motion.div>
+              <AnimatedCard key={index} delay={index * 0.1} className="h-full">
+                <div className="flex flex-col h-full">
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-4 shadow-lg`}>
+                    <feature.icon className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 flex-grow">{feature.description}</p>
+                  <motion.div
+                    className="mt-4 pt-4 border-t border-gray-100"
+                    whileHover={{ x: 5 }}
+                  >
+                    <a href="#" className="text-blue-600 font-medium flex items-center hover:text-blue-700">
+                      Learn more
+                      <ChevronRight className="w-4 h-4 ml-1" />
+                    </a>
+                  </motion.div>
+                </div>
+              </AnimatedCard>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      {/* Interactive Vehicle Check */}
+      <VehicleCheckWidget />
+
+      {/* Premium Services Grid */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Comprehensive Vehicle History Checks
-              </h2>
-              <p className="text-lg text-gray-600 mb-6">
-                Our advanced vehicle checking system provides instant access to crucial information including:
-              </p>
-              <ul className="space-y-3">
-                {[
-                  'Accurate mileage verification',
-                  'Previous ownership history',
-                  'Outstanding finance checks',
-                  'Insurance write-off status',
-                  'MOT history and advisories',
-                  'DVLA tax and MOT status',
-                ].map((item, index) => (
-                  <li key={index} className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span className="text-gray-700">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/mileage-check"
-                className="inline-flex items-center mt-8 px-6 py-3 bg-blue-900 text-white font-semibold rounded-lg hover:bg-blue-800 transition-colors"
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Choose Your <span className="gradient-blue">Perfect Plan</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Flexible solutions tailored to your business needs
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="relative"
               >
-                Get Started
-                <ChevronRight className="ml-2 h-5 w-5" />
-              </Link>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="relative"
-            >
-              <div className="bg-gradient-to-br from-blue-100 to-cyan-100 rounded-2xl p-8">
-                <div className="bg-white rounded-xl shadow-xl p-6">
-                  <div className="flex items-center mb-4">
-                    <Car className="h-8 w-8 text-blue-900 mr-3" />
-                    <h3 className="text-xl font-semibold text-gray-900">Sample Report</h3>
+                {service.popular && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+                    <div className="badge-premium">Most Popular</div>
                   </div>
-                  <div className="space-y-3">
-                    <div className="flex justify-between py-2 border-b">
-                      <span className="text-gray-600">Vehicle Status</span>
-                      <span className="text-green-600 font-semibold">✓ Clear</span>
+                )}
+
+                <div className={`bg-white rounded-3xl shadow-xl overflow-hidden h-full ${service.popular ? 'ring-2 ring-blue-600' : ''} hover:shadow-2xl transition-shadow card-hover`}>
+                  <div className="p-8">
+                    <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center mb-4">
+                      <service.icon className="w-7 h-7 text-white" />
                     </div>
-                    <div className="flex justify-between py-2 border-b">
-                      <span className="text-gray-600">Mileage</span>
-                      <span className="font-semibold">45,320 miles</span>
-                    </div>
-                    <div className="flex justify-between py-2 border-b">
-                      <span className="text-gray-600">Previous Owners</span>
-                      <span className="font-semibold">2</span>
-                    </div>
-                    <div className="flex justify-between py-2">
-                      <span className="text-gray-600">Last MOT</span>
-                      <span className="font-semibold">Pass</span>
-                    </div>
+
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{service.title}</h3>
+                    <div className="text-3xl font-bold text-blue-600 mb-6">{service.price}</div>
+
+                    <ul className="space-y-3 mb-8">
+                      {service.features.map((feature, i) => (
+                        <li key={i} className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                          <span className="text-gray-700">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <PremiumButton
+                      variant={service.popular ? 'gradient' : 'primary'}
+                      fullWidth
+                    >
+                      Get Started
+                    </PremiumButton>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-blue-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Trusted by the Industry
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.1 * index }}
-                className="text-center"
-              >
-                <div className="text-3xl md:text-4xl font-bold mb-2">{stat.value}</div>
-                <div className="text-blue-200">{stat.label}</div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
-            <div className="text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Ready to Get Started?
-              </h2>
-              <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                Join thousands of motor traders who trust BIMTA for accurate vehicle verification and industry support.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/mileage-check"
-                  className="inline-flex items-center px-8 py-4 bg-blue-900 text-white font-semibold rounded-lg hover:bg-blue-800 transition-colors"
-                >
-                  Order a Check Now
-                  <ChevronRight className="ml-2 h-5 w-5" />
-                </Link>
-                <Link
-                  href="/about"
-                  className="inline-flex items-center px-8 py-4 bg-gray-100 text-gray-900 font-semibold rounded-lg hover:bg-gray-200 transition-colors"
-                >
-                  Learn More
-                  <ChevronRight className="ml-2 h-5 w-5" />
-                </Link>
+      {/* Testimonials Section */}
+      <TestimonialsSection />
+
+      {/* Premium CTA Section */}
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-cyan-900"></div>
+        <div className="absolute inset-0 noise-overlay"></div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-white/10 backdrop-blur-xl rounded-3xl p-12 md:p-16 text-center"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Ready to Transform Your Business?
+            </h2>
+            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+              Join the UK's most trusted motor trade association and access premium tools that drive success
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <PremiumButton
+                href="/mileage-check"
+                variant="secondary"
+                size="xl"
+                icon={<TrendingUp className="w-6 h-6" />}
+              >
+                Start Free Trial
+              </PremiumButton>
+              <PremiumButton
+                href="/about"
+                variant="ghost"
+                size="xl"
+                className="text-white hover:bg-white/10"
+              >
+                Book a Demo
+              </PremiumButton>
+            </div>
+
+            <div className="mt-12 flex flex-wrap justify-center gap-8 text-white/80">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-green-400" />
+                <span>No credit card required</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-green-400" />
+                <span>14-day free trial</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-green-400" />
+                <span>Cancel anytime</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>
