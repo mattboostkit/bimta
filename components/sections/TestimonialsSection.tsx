@@ -1,9 +1,8 @@
 'use client';
 
-import { motion, useAnimationControls } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 
 const testimonials = [
   {
@@ -55,7 +54,6 @@ const trustLogos = [
 export default function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
-  const controls = useAnimationControls();
 
   useEffect(() => {
     if (autoPlay) {
@@ -143,7 +141,7 @@ export default function TestimonialsSection() {
 
                   {/* Testimonial Text */}
                   <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
-                    "{testimonial.content}"
+                    &ldquo;{testimonial.content}&rdquo;
                   </p>
 
                   {/* Author Info */}

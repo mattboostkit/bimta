@@ -228,7 +228,7 @@ export default function Home() {
               Ready to Transform Your Business?
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Join the UK's most trusted motor trade association and access premium tools that drive success
+              Join the UK&apos;s most trusted motor trade association and access premium tools that drive success
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

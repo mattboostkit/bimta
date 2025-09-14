@@ -7,10 +7,7 @@ import {
   Users,
   Car,
   TrendingUp,
-  Calendar,
   Download,
-  Filter,
-  Search,
   Bell,
   Settings,
   CreditCard,
@@ -83,7 +80,7 @@ export default function Dashboard() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div>
               <h1 className="text-3xl font-bold mb-2">Premium Dashboard</h1>
-              <p className="text-blue-100">Welcome back, John's Motor Trading Ltd</p>
+              <p className="text-blue-100">Welcome back, John&apos;s Motor Trading Ltd</p>
             </div>
             <div className="flex gap-3">
               <button className="p-3 bg-white/10 hover:bg-white/20 rounded-xl transition-colors">

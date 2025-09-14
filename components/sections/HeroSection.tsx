@@ -2,7 +2,6 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronRight, Play, Shield, Award, CheckCircle } from 'lucide-react';
-import Link from 'next/link';
 import { useState, useRef } from 'react';
 import PremiumButton from '../ui/PremiumButton';
 
@@ -115,7 +114,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-blue-100 mb-12 max-w-3xl mx-auto"
           >
-            The UK's most trusted platform for comprehensive vehicle verification,
+            The UK&apos;s most trusted platform for comprehensive vehicle verification,
             dealer networks, and import guidance services
           </motion.p>
 
