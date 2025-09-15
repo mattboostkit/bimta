@@ -1,13 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ChevronRight, Play, Shield, Award, CheckCircle, ArrowRight, Sparkles, Car, Users, BarChart3 } from 'lucide-react';
+import { Play, Shield, Award, CheckCircle, ArrowRight, Sparkles } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 
 export default function HeroSection() {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [, setIsVideoPlaying] = useState(false);
 
   const stats = [
     { value: '10,000+', label: 'Verified Dealers', icon: Shield },
@@ -62,7 +61,7 @@ export default function HeroSection() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto"
             >
-              The UK's most trusted platform for comprehensive vehicle verification,
+              The UK&apos;s most trusted platform for comprehensive vehicle verification,
               dealer networks, and import guidance services
             </motion.p>
 

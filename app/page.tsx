@@ -2,11 +2,10 @@
 
 import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
-import { CheckCircle, Shield, Users, FileText, ChevronRight, Car, TrendingUp, Award, Globe, ArrowRight, Zap, Lock, BarChart3, Star } from 'lucide-react';
+import { CheckCircle, Shield, Users, FileText, ChevronRight, Car, TrendingUp, Award, Globe, ArrowRight, Zap, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
 
 // Dynamic imports for better performance
 const HeroSection = dynamic(() => import('@/components/sections/HeroSection'), {
