@@ -1,207 +1,131 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ChevronRight, Play, Shield, Award, CheckCircle } from 'lucide-react';
-import { useState, useRef } from 'react';
-import PremiumButton from '../ui/PremiumButton';
+import { motion } from 'framer-motion';
+import { ChevronRight, Play, Shield, Award, CheckCircle, ArrowRight, Sparkles } from 'lucide-react';
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Card } from '@/components/ui/card';
 
 export default function HeroSection() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end start'],
-  });
 
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-
-  const floatingElements = [
-    { icon: Shield, label: 'Verified', position: 'top-32 left-10' },
-    { icon: Award, label: 'Trusted', position: 'top-48 right-10' },
-    { icon: CheckCircle, label: 'Accurate', position: 'bottom-40 left-16' },
+  const stats = [
+    { value: '10,000+', label: 'Verified Dealers', icon: Shield },
+    { value: '500K+', label: 'Checks Completed', icon: CheckCircle },
+    { value: '99.9%', label: 'Accuracy Rate', icon: Award },
   ];
 
   return (
-    <section ref={containerRef} className="relative min-h-screen overflow-hidden">
-      {/* Premium Video Background */}
-      <motion.div style={{ y }} className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-linear-to-br from-blue-950 via-blue-900 to-cyan-900">
-          <div className="absolute inset-0 opacity-20" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }}></div>
-        </div>
-        <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent"></div>
-      </motion.div>
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-grid-slate-100 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] -z-10" />
 
-      {/* Animated Particles */}
-      <div className="absolute inset-0 z-0">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-white/20 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0, 1, 0],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
-      </div>
+      {/* Animated Gradient Orbs */}
+      <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob" />
+      <div className="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000" />
+      <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000" />
 
-      {/* Floating Elements */}
-      {floatingElements.map((element, index) => (
-        <motion.div
-          key={index}
-          className={`absolute ${element.position} hidden lg:block z-10`}
-          animate={{
-            y: [0, -20, 0],
-            rotate: [0, 5, 0],
-          }}
-          transition={{
-            duration: 4 + index,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        >
-          <div className="glass rounded-2xl p-4 flex items-center gap-3">
-            <element.icon className="w-6 h-6 text-cyan-400" />
-            <span className="text-white/90 font-medium">{element.label}</span>
-          </div>
-        </motion.div>
-      ))}
-
-      {/* Main Content */}
-      <motion.div style={{ opacity }} className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-        <div className="text-center">
+      <div className="container relative z-10 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
           {/* Premium Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-block mb-6"
+            transition={{ duration: 0.5 }}
+            className="flex justify-center mb-6"
           >
-            <div className="badge-premium">
+            <Badge variant="secondary" className="px-4 py-1.5 text-sm font-medium">
+              <Sparkles className="w-3.5 h-3.5 mr-2" />
               Industry Leader Since 1994
-            </div>
+            </Badge>
           </motion.div>
 
           {/* Main Heading */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 mb-6"
           >
-            <span className="block">British Independent</span>
-            <span className="block gradient-text bg-linear-to-r from-cyan-400 via-blue-400 to-purple-400">
+            British Independent
+            <span className="block bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               Motor Trade Association
             </span>
           </motion.h1>
 
           {/* Subtitle */}
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-blue-100 mb-12 max-w-3xl mx-auto"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-lg sm:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed"
           >
             The UK&apos;s most trusted platform for comprehensive vehicle verification,
             dealer networks, and import guidance services
           </motion.p>
 
-          {/* Stats Row */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-wrap justify-center gap-8 mb-12"
-          >
-            {[
-              { value: '10,000+', label: 'Verified Dealers' },
-              { value: '500K+', label: 'Checks Completed' },
-              { value: '99.9%', label: 'Accuracy Rate' },
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-white mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-blue-200">{stat.label}</div>
-              </div>
-            ))}
-          </motion.div>
-
           {/* CTA Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
           >
-            <PremiumButton
-              href="/mileage-check"
-              variant="gradient"
-              size="lg"
-              icon={<ChevronRight className="w-5 h-5" />}
-            >
-              Start Vehicle Check
-            </PremiumButton>
-            <PremiumButton
-              href="/members-directory"
-              variant="secondary"
-              size="lg"
-              icon={<Shield className="w-5 h-5" />}
-            >
-              Browse Verified Dealers
-            </PremiumButton>
+            <Button size="lg" className="text-base px-8" asChild>
+              <a href="/mileage-check">
+                Start Vehicle Check
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </a>
+            </Button>
+            <Button size="lg" variant="outline" className="text-base px-8" asChild>
+              <a href="/members-directory">
+                <Shield className="mr-2 h-4 w-4" />
+                Browse Verified Dealers
+              </a>
+            </Button>
           </motion.div>
 
           {/* Video Demo Button */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="flex justify-center"
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="flex justify-center mb-16"
           >
             <button
               onClick={() => setIsVideoPlaying(true)}
-              className="group flex items-center gap-3 text-white/80 hover:text-white transition-colors"
+              className="group flex items-center gap-3 text-gray-600 hover:text-gray-900 transition-colors"
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-white/20 rounded-full animate-ping"></div>
-                <div className="relative w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/20 transition-colors">
-                  <Play className="w-6 h-6 ml-1" />
+                <div className="absolute inset-0 bg-blue-600/20 rounded-full animate-ping" />
+                <div className="relative w-12 h-12 bg-white shadow-lg rounded-full flex items-center justify-center group-hover:shadow-xl transition-shadow">
+                  <Play className="w-5 h-5 ml-0.5 text-blue-600" />
                 </div>
               </div>
               <span className="font-medium">Watch How It Works</span>
             </button>
           </motion.div>
-        </div>
-      </motion.div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.2 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center"
-        >
-          <div className="w-1 h-3 bg-white/60 rounded-full mt-2"></div>
-        </motion.div>
-      </motion.div>
+          {/* Stats Row */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto"
+          >
+            {stats.map((stat, index) => (
+              <Card key={index} className="p-6 text-center border-0 shadow-lg bg-white/70 backdrop-blur">
+                <stat.icon className="w-8 h-8 mx-auto mb-3 text-blue-600" />
+                <div className="text-3xl font-bold text-gray-900 mb-1">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-gray-600">{stat.label}</div>
+              </Card>
+            ))}
+          </motion.div>
+        </div>
+      </div>
 
       {/* Video Modal */}
       {isVideoPlaying && (
@@ -214,14 +138,14 @@ export default function HeroSection() {
           <div className="relative max-w-4xl w-full aspect-video bg-gray-900 rounded-2xl overflow-hidden">
             <button
               onClick={() => setIsVideoPlaying(false)}
-              className="absolute top-4 right-4 text-white/80 hover:text-white z-10"
+              className="absolute top-4 right-4 text-white/80 hover:text-white z-10 bg-black/50 rounded-full p-2"
             >
-              <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
             <div className="flex items-center justify-center h-full">
-              <p className="text-white/60">Video Demo Placeholder</p>
+              <p className="text-white/60">Video Demo Coming Soon</p>
             </div>
           </div>
         </motion.div>

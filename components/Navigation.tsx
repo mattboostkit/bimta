@@ -2,91 +2,176 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Menu, X, Car, User } from 'lucide-react';
+import { Menu, X, Car, User, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from '@/components/ui/navigation-menu';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { cn } from '@/lib/utils';
 
 export default function Navigation() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About Us' },
-    { href: '/mileage-check', label: 'Mileage Check' },
-    { href: '/members-directory', label: 'Members Directory' },
-    { href: '/import-guidance', label: 'Import Guidance' },
+  const services = [
+    {
+      title: 'Mileage Check',
+      href: '/mileage-check',
+      description: 'Comprehensive vehicle history and mileage verification',
+    },
+    {
+      title: 'Import Guidance',
+      href: '/import-guidance',
+      description: 'Expert guidance for importing vehicles to the UK',
+    },
+    {
+      title: 'Members Directory',
+      href: '/members-directory',
+      description: 'Connect with verified motor trade professionals',
+    },
   ];
 
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20">
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <Car className="h-8 w-8 text-blue-900" />
-              <span className="text-2xl font-bold text-blue-900">BIMTA</span>
-            </Link>
+    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-16 items-center">
+        {/* Logo */}
+        <Link href="/" className="mr-6 flex items-center space-x-2">
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
+            <Car className="h-6 w-6 text-primary-foreground" />
           </div>
+          <span className="hidden font-bold text-xl sm:inline-block">
+            BIMTA
+          </span>
+        </Link>
 
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-gray-700 hover:text-blue-900 transition-colors font-medium"
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link
-              href="/login"
-              className="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors flex items-center space-x-2"
-            >
-              <User className="h-4 w-4" />
-              <span>Member Login</span>
-            </Link>
-          </div>
-
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-blue-900"
-            >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t"
-          >
-            <div className="px-4 py-3 space-y-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="block px-3 py-2 text-gray-700 hover:text-blue-900 hover:bg-gray-50 rounded-lg"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.label}
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex md:flex-1 md:items-center md:justify-between">
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <Link href="/" legacyBehavior passHref>
+                  <NavigationMenuLink className={cn(
+                    "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                  )}>
+                    Home
+                  </NavigationMenuLink>
                 </Link>
-              ))}
-              <Link
-                href="/login"
-                className="block px-3 py-2 bg-blue-900 text-white rounded-lg hover:bg-blue-800"
-                onClick={() => setIsMenuOpen(false)}
-              >
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
+                    {services.map((service) => (
+                      <li key={service.href}>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            href={service.href}
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          >
+                            <div className="text-sm font-medium leading-none">
+                              {service.title}
+                            </div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              {service.description}
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <Link href="/about" legacyBehavior passHref>
+                  <NavigationMenuLink className={cn(
+                    "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                  )}>
+                    About Us
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+
+          <div className="flex items-center space-x-4">
+            <Button variant="ghost" size="sm" asChild>
+              <Link href="/contact">Contact</Link>
+            </Button>
+            <Button size="sm" asChild>
+              <Link href="/login" className="flex items-center gap-2">
+                <User className="h-4 w-4" />
                 Member Login
               </Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </Button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        <div className="flex flex-1 items-center justify-end md:hidden">
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-5 w-5" />
+                <span className="sr-only">Toggle menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <nav className="flex flex-col space-y-4">
+                <Link
+                  href="/"
+                  onClick={() => setIsOpen(false)}
+                  className="text-lg font-medium hover:text-primary transition-colors"
+                >
+                  Home
+                </Link>
+                <div className="space-y-3">
+                  <h3 className="text-sm font-semibold text-muted-foreground">Services</h3>
+                  {services.map((service) => (
+                    <Link
+                      key={service.href}
+                      href={service.href}
+                      onClick={() => setIsOpen(false)}
+                      className="block pl-4 text-sm hover:text-primary transition-colors"
+                    >
+                      {service.title}
+                    </Link>
+                  ))}
+                </div>
+                <Link
+                  href="/about"
+                  onClick={() => setIsOpen(false)}
+                  className="text-lg font-medium hover:text-primary transition-colors"
+                >
+                  About Us
+                </Link>
+                <Link
+                  href="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className="text-lg font-medium hover:text-primary transition-colors"
+                >
+                  Contact
+                </Link>
+                <div className="pt-4 border-t">
+                  <Button className="w-full" asChild>
+                    <Link href="/login" onClick={() => setIsOpen(false)}>
+                      <User className="mr-2 h-4 w-4" />
+                      Member Login
+                    </Link>
+                  </Button>
+                </div>
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
     </nav>
   );
 }
