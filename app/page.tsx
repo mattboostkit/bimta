@@ -62,7 +62,8 @@ export default function Home() {
       ],
       icon: Car,
       popular: true,
-      color: 'border-blue-200 bg-linear-to-br from-blue-50 to-indigo-50',
+      color: 'border-blue-200',
+      bgClass: 'bg-gradient-to-br from-blue-50 to-indigo-50',
     },
     {
       title: 'Dealer Membership',
@@ -76,7 +77,8 @@ export default function Home() {
         'Network access',
       ],
       icon: Award,
-      color: 'border-purple-200 bg-linear-to-br from-purple-50 to-pink-50',
+      color: 'border-purple-200',
+      bgClass: 'bg-gradient-to-br from-purple-50 to-pink-50',
     },
     {
       title: 'Import Services',
@@ -90,7 +92,8 @@ export default function Home() {
         'Documentation service',
       ],
       icon: Globe,
-      color: 'border-green-200 bg-linear-to-br from-green-50 to-emerald-50',
+      color: 'border-green-200',
+      bgClass: 'bg-gradient-to-br from-green-50 to-emerald-50',
     },
   ];
 
@@ -106,7 +109,7 @@ export default function Home() {
       <HeroSection />
 
       {/* Features Section */}
-      <section className="py-20 bg-linear-to-b from-white to-gray-50">
+      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
         <div className="container px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -203,7 +206,7 @@ export default function Home() {
                   </div>
                 )}
 
-                <Card className={`h-full ${service.color} ${service.popular ? 'border-2 border-blue-500 shadow-xl' : 'border shadow-lg'}`}>
+                <Card className={`h-full pricing-card ${service.popular ? 'pricing-card-popular' : ''}`}>
                   <CardHeader className="text-center pb-8">
                     <div className="w-14 h-14 rounded-full bg-white shadow-md flex items-center justify-center mx-auto mb-4">
                       <service.icon className="w-7 h-7 text-gray-700" />
@@ -237,7 +240,7 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-linear-to-r from-blue-600 to-indigo-600">
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-indigo-600">
         <div className="container px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -262,7 +265,7 @@ export default function Home() {
       <TestimonialsSection />
 
       {/* CTA Section */}
-      <section className="py-20 bg-linear-to-br from-gray-50 to-white">
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="container px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}

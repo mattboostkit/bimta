@@ -1,15 +1,14 @@
 @import "tailwindcss";
 
-/* Primary CSS Variables for consistent theming */
+/* CSS Variables */
 :root {
-  /* Core colors in HSL format for Tailwind compatibility */
   --background: 0 0% 100%;
   --foreground: 222.2 84% 4.9%;
   --card: 0 0% 100%;
   --card-foreground: 222.2 84% 4.9%;
   --popover: 0 0% 100%;
   --popover-foreground: 222.2 84% 4.9%;
-  --primary: 211 100% 50%;
+  --primary: 217 91% 60%;
   --primary-foreground: 0 0% 100%;
   --secondary: 210 40% 96.1%;
   --secondary-foreground: 222.2 47.4% 11.2%;
@@ -21,33 +20,11 @@
   --destructive-foreground: 210 40% 98%;
   --border: 214.3 31.8% 91.4%;
   --input: 214.3 31.8% 91.4%;
-  --ring: 211 100% 50%;
+  --ring: 217 91% 60%;
   --radius: 0.5rem;
 }
 
-.dark {
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
-  --primary: 210 40% 98%;
-  --primary-foreground: 222.2 47.4% 11.2%;
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 212.7 26.8% 83.9%;
-}
-
-/* Tailwind v4 Theme Configuration */
+/* Theme Configuration */
 @theme {
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
@@ -70,12 +47,11 @@
   --color-card-foreground: hsl(var(--card-foreground));
 }
 
-/* Base Styles */
+/* Base Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border-color: hsl(var(--border));
 }
 
 html {
@@ -85,51 +61,178 @@ html {
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  min-height: 100vh;
+  line-height: 1.5;
 }
 
-/* Custom gradient utilities for Tailwind */
-@layer utilities {
-  .bg-linear-to-br {
-    background: linear-gradient(to bottom right, var(--tw-gradient-stops));
-  }
-  .bg-linear-to-r {
-    background: linear-gradient(to right, var(--tw-gradient-stops));
-  }
-  .bg-linear-to-b {
-    background: linear-gradient(to bottom, var(--tw-gradient-stops));
-  }
-  .bg-linear-to-t {
-    background: linear-gradient(to top, var(--tw-gradient-stops));
-  }
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: hsl(var(--foreground));
+  font-weight: 700;
+  line-height: 1.2;
 }
 
-/* Premium Glass Effect */
-.glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+h1 { font-size: 3rem; }
+h2 { font-size: 2.25rem; }
+h3 { font-size: 1.875rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+  color: hsl(var(--foreground));
+  line-height: 1.6;
 }
 
-/* Premium Shadow Effects */
-.shadow-premium {
-  box-shadow: 0 10px 40px -10px rgba(30, 58, 138, 0.15);
+/* Container */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 1280px;
 }
 
-.shadow-premium-lg {
-  box-shadow: 0 20px 60px -15px rgba(30, 58, 138, 0.25);
+/* Cards - Premium Design */
+.card,
+[data-slot="card"] {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Smooth Transitions */
-* {
-  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+.card:hover,
+[data-slot="card"]:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
-/* Premium Gradient Text */
+/* Pricing Cards */
+.pricing-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  border: 2px solid #e5e7eb;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: #3b82f6;
+}
+
+.pricing-card-popular {
+  border: 2px solid #3b82f6;
+  transform: scale(1.05);
+  box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.15), 0 10px 10px -5px rgba(59, 130, 246, 0.04);
+}
+
+.pricing-card-popular:hover {
+  transform: scale(1.08) translateY(-4px);
+}
+
+/* Buttons */
+button, .btn {
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+button:hover, .btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Gradients */
+.bg-gradient-to-r {
+  background: linear-gradient(to right, var(--tw-gradient-from), var(--tw-gradient-to));
+}
+
+.bg-gradient-to-br {
+  background: linear-gradient(to bottom right, var(--tw-gradient-from), var(--tw-gradient-to));
+}
+
+.bg-gradient-to-b {
+  background: linear-gradient(to bottom, var(--tw-gradient-from), var(--tw-gradient-to));
+}
+
+.from-blue-600 {
+  --tw-gradient-from: #2563eb;
+  --tw-gradient-to: #2563eb00;
+}
+
+.to-indigo-600 {
+  --tw-gradient-to: #4f46e5;
+}
+
+.from-blue-50 {
+  --tw-gradient-from: #eff6ff;
+  --tw-gradient-to: #eff6ff00;
+}
+
+.to-indigo-50 {
+  --tw-gradient-to: #eef2ff;
+}
+
+.from-purple-50 {
+  --tw-gradient-from: #faf5ff;
+  --tw-gradient-to: #faf5ff00;
+}
+
+.to-pink-50 {
+  --tw-gradient-to: #fdf2f8;
+}
+
+.from-green-50 {
+  --tw-gradient-from: #f0fdf4;
+  --tw-gradient-to: #f0fdf400;
+}
+
+.to-emerald-50 {
+  --tw-gradient-to: #ecfdf5;
+}
+
+.from-gray-50 {
+  --tw-gradient-from: #f9fafb;
+  --tw-gradient-to: #f9fafb00;
+}
+
+.to-white {
+  --tw-gradient-to: #ffffff;
+}
+
+.from-white {
+  --tw-gradient-from: #ffffff;
+  --tw-gradient-to: #ffffff00;
+}
+
+.to-gray-50 {
+  --tw-gradient-to: #f9fafb;
+}
+
+.from-red-500 {
+  --tw-gradient-from: #ef4444;
+  --tw-gradient-to: #ef444400;
+}
+
+.to-pink-500 {
+  --tw-gradient-to: #ec4899;
+}
+
+/* Hero Gradient */
+.hero-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Premium Text Gradient */
 .gradient-text {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   -webkit-background-clip: text;
@@ -138,99 +241,104 @@ body {
 }
 
 .gradient-blue {
-  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Premium Button Styles */
-.btn-premium {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.btn-premium::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
-}
-
-.btn-premium:hover::before {
-  width: 300px;
-  height: 300px;
-}
-
-/* Animated Gradient Background */
-.animated-gradient {
-  background: linear-gradient(-45deg, #1e3a8a, #3b82f6, #06b6d4, #1e3a8a);
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
-}
-
-@keyframes gradientShift {
+/* Animated gradient background */
+@keyframes gradient {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* Card Hover Effects */
-.card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.animated-gradient {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
 }
 
-.card-hover:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
+/* Premium shadows */
+.shadow-premium {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
-/* Premium Scrollbar */
+.shadow-premium-lg {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Fix spacing issues */
+section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Premium scrollbar */
 ::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(var(--muted));
+  background: #f1f1f1;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, hsl(var(--primary)), hsl(var(--primary) / 0.8));
+  background: linear-gradient(180deg, #3b82f6, #2563eb);
   border-radius: 10px;
-  border: 2px solid hsl(var(--background));
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, hsl(var(--primary) / 0.9), hsl(var(--primary)));
+  background: linear-gradient(180deg, #2563eb, #1d4ed8);
 }
 
-/* Text Selection */
+/* Selection */
 ::selection {
-  background: hsl(var(--primary) / 0.2);
-  color: hsl(var(--primary));
+  background: rgba(59, 130, 246, 0.2);
+  color: #1e40af;
 }
 
-/* Ensure proper text visibility */
-h1, h2, h3, h4, h5, h6 {
-  color: hsl(var(--foreground));
-  font-weight: 600;
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
 }
 
-p, span, div {
-  color: hsl(var(--foreground));
+/* Utility classes */
+.text-gradient {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* Fix for cards */
-.card {
-  background-color: hsl(var(--card));
-  color: hsl(var(--card-foreground));
+/* Badge styles */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+/* Fix for overlapping elements */
+.relative {
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure proper stacking */
+nav {
+  z-index: 50;
+}
+
+footer {
+  z-index: 10;
 }
