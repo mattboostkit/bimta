@@ -8,7 +8,7 @@ import AnimatedCard from '@/components/ui/AnimatedCard';
 
 // Dynamic imports for better performance
 const HeroSection = dynamic(() => import('@/components/sections/HeroSection'), {
-  loading: () => <div className="min-h-screen bg-gradient-to-br from-blue-950 via-blue-900 to-cyan-900" />,
+  loading: () => <div className="min-h-screen bg-linear-to-br from-blue-950 via-blue-900 to-cyan-900" />,
 });
 
 const VehicleCheckWidget = dynamic(() => import('@/components/sections/VehicleCheckWidget'));
@@ -90,7 +90,7 @@ export default function Home() {
       <HeroSection />
 
       {/* Premium Features Section */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50 relative">
+      <section className="py-20 bg-linear-to-b from-white to-gray-50 relative">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -116,13 +116,13 @@ export default function Home() {
             {features.map((feature, index) => (
               <AnimatedCard key={index} delay={index * 0.1} className="h-full">
                 <div className="flex flex-col h-full">
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-4 shadow-lg`}>
+                  <div className={`w-16 h-16 rounded-2xl bg-linear-to-br ${feature.color} flex items-center justify-center mb-4 shadow-lg`}>
                     <feature.icon className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 flex-grow">{feature.description}</p>
+                  <p className="text-gray-600 grow">{feature.description}</p>
                   <motion.div
                     className="mt-4 pt-4 border-t border-gray-100"
                     whileHover={{ x: 5 }}
@@ -143,7 +143,7 @@ export default function Home() {
       <VehicleCheckWidget />
 
       {/* Premium Services Grid */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-20 bg-linear-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -178,7 +178,7 @@ export default function Home() {
 
                 <div className={`bg-white rounded-3xl shadow-xl overflow-hidden h-full ${service.popular ? 'ring-2 ring-blue-600' : ''} hover:shadow-2xl transition-shadow card-hover`}>
                   <div className="p-8">
-                    <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center mb-4">
+                    <div className="w-14 h-14 bg-linear-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center mb-4">
                       <service.icon className="w-7 h-7 text-white" />
                     </div>
 
@@ -188,7 +188,7 @@ export default function Home() {
                     <ul className="space-y-3 mb-8">
                       {service.features.map((feature, i) => (
                         <li key={i} className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 shrink-0" />
                           <span className="text-gray-700">{feature}</span>
                         </li>
                       ))}
@@ -213,7 +213,7 @@ export default function Home() {
 
       {/* Premium CTA Section */}
       <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-cyan-900"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-blue-900 via-purple-900 to-cyan-900"></div>
         <div className="absolute inset-0 noise-overlay"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

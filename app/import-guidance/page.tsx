@@ -71,7 +71,7 @@ function ImportGuidanceContent() {
 
   return (
     <div>
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">
+      <section className="bg-linear-to-br from-blue-900 to-blue-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -183,7 +183,7 @@ function ImportGuidanceContent() {
                     <div className="space-y-4">
                       {steps.map((step) => (
                         <div key={step.number} className="flex items-start">
-                          <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                          <div className="shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
                             <span className="text-blue-900 font-semibold">{step.number}</span>
                           </div>
                           <div className="ml-4">
@@ -208,7 +208,7 @@ function ImportGuidanceContent() {
                 {steps.map((step, index) => (
                   <div key={index} className="bg-gray-50 rounded-xl p-6">
                     <div className="flex items-start">
-                      <div className="flex-shrink-0 w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center">
+                      <div className="shrink-0 w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center">
                         <step.icon className="h-6 w-6 text-white" />
                       </div>
                       <div className="ml-6 flex-1">
@@ -310,7 +310,7 @@ function ImportGuidanceContent() {
                       key={index}
                       className="flex items-center p-4 bg-white rounded-lg border border-gray-200"
                     >
-                      <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center ${
+                      <div className={`shrink-0 w-6 h-6 rounded-full flex items-center justify-center ${
                         doc.required ? 'bg-red-100' : 'bg-gray-100'
                       }`}>
                         {doc.required ? (
@@ -412,7 +412,7 @@ function ImportGuidanceContent() {
                   {faqs.map((faq, index) => (
                     <div key={index} className="bg-white rounded-lg border border-gray-200 p-6">
                       <div className="flex items-start">
-                        <HelpCircle className="h-5 w-5 text-blue-900 mt-0.5 mr-3 flex-shrink-0" />
+                        <HelpCircle className="h-5 w-5 text-blue-900 mt-0.5 mr-3 shrink-0" />
                         <div>
                           <h3 className="font-semibold text-gray-900 mb-2">{faq.question}</h3>
                           <p className="text-gray-600">{faq.answer}</p>

@@ -75,7 +75,7 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Premium Dashboard Header */}
-      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-cyan-700 text-white">
+      <div className="bg-linear-to-r from-blue-900 via-blue-800 to-cyan-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div>
@@ -155,7 +155,7 @@ export default function Dashboard() {
                       {stat.change} from last {timeRange}
                     </p>
                   </div>
-                  <div className={`w-14 h-14 bg-gradient-to-br ${stat.color} rounded-2xl flex items-center justify-center`}>
+                  <div className={`w-14 h-14 bg-linear-to-br ${stat.color} rounded-2xl flex items-center justify-center`}>
                     <stat.icon className="w-7 h-7 text-white" />
                   </div>
                 </div>
@@ -188,7 +188,7 @@ export default function Dashboard() {
                     transition={{ duration: 0.5, delay: index * 0.05 }}
                   >
                     <div
-                      className="w-full bg-gradient-to-t from-blue-600 to-cyan-500 rounded-t-lg hover:from-blue-700 hover:to-cyan-600 transition-colors cursor-pointer relative group"
+                      className="w-full bg-linear-to-t from-blue-600 to-cyan-500 rounded-t-lg hover:from-blue-700 hover:to-cyan-600 transition-colors cursor-pointer relative group"
                       style={{ height: `${(data.checks / 250) * 100}%` }}
                     >
                       <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
@@ -263,7 +263,7 @@ export default function Dashboard() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-8 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-3xl p-8 text-white"
+          className="mt-8 bg-linear-to-r from-blue-600 to-cyan-600 rounded-3xl p-8 text-white"
         >
           <h2 className="text-2xl font-bold mb-6">Quick Actions</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -302,7 +302,7 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
           <AnimatedCard>
             <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center">
+              <div className="w-12 h-12 bg-linear-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center">
                 <Shield className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -314,7 +314,7 @@ export default function Dashboard() {
 
           <AnimatedCard>
             <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+              <div className="w-12 h-12 bg-linear-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
                 <BarChart3 className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -326,7 +326,7 @@ export default function Dashboard() {
 
           <AnimatedCard>
             <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center">
+              <div className="w-12 h-12 bg-linear-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center">
                 <Bell className="w-6 h-6 text-white" />
               </div>
               <div>

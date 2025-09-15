@@ -75,7 +75,7 @@ export default function AboutPage() {
 
   return (
     <div>
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">
+      <section className="bg-linear-to-br from-blue-900 to-blue-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -123,7 +123,7 @@ export default function AboutPage() {
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Journey</h3>
               {milestones.map((milestone, index) => (
                 <div key={index} className="flex">
-                  <div className="flex-shrink-0 w-20">
+                  <div className="shrink-0 w-20">
                     <span className="text-blue-900 font-bold">{milestone.year}</span>
                   </div>
                   <div className="ml-4">

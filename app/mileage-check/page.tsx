@@ -96,7 +96,7 @@ export default function MileageCheckPage() {
 
   return (
     <div>
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">
+      <section className="bg-linear-to-br from-blue-900 to-blue-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -116,7 +116,7 @@ export default function MileageCheckPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-blue-50 rounded-xl p-6 mb-12">
             <div className="flex items-start">
-              <Info className="h-6 w-6 text-blue-900 mt-1 flex-shrink-0" />
+              <Info className="h-6 w-6 text-blue-900 mt-1 shrink-0" />
               <div className="ml-4">
                 <h3 className="font-semibold text-blue-900 mb-2">Why check vehicle mileage?</h3>
                 <p className="text-blue-800">
@@ -182,7 +182,7 @@ export default function MileageCheckPage() {
                 <ul className="space-y-3 mb-6">
                   {pkg.features.map((feature, index) => (
                     <li key={index} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 mr-2 shrink-0" />
                       <span className="text-gray-700">{feature}</span>
                     </li>
                   ))}
