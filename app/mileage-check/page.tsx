@@ -159,21 +159,23 @@ export default function MileageCheckPage() {
 
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">Choose Your Package</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 px-4">
             {checkPackages.map((pkg) => (
               <motion.div
                 key={pkg.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className={`relative bg-white rounded-xl shadow-lg p-6 ${
+                className={`relative bg-white rounded-xl shadow-lg ${
+                  pkg.popular ? 'shadow-premium-lg' : ''
+                } p-6 ${
                   selectedPackage === pkg.id ? 'ring-2 ring-blue-500' : ''
-                } ${pkg.popular ? 'transform scale-105' : ''} cursor-pointer hover:shadow-xl transition-all`}
+                } ${pkg.popular ? 'transform md:scale-105' : ''} cursor-pointer hover:shadow-xl transition-all`}
                 onClick={() => setSelectedPackage(pkg.id)}
               >
                 {pkg.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-red-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+                    <span className="bg-gradient-to-r from-red-500 to-pink-500 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-lg">
                       Most Popular
                     </span>
                   </div>
