@@ -5,7 +5,9 @@ import { motion } from 'framer-motion';
 import { loadStripe } from '@stripe/stripe-js';
 import { Car, CheckCircle, Info, Shield, FileText, CreditCard } from 'lucide-react';
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
+// Only initialize Stripe if we have a valid key
+const stripeKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+const stripePromise = stripeKey ? loadStripe(stripeKey) : null;
 
 const checkPackages = [
   {
@@ -58,6 +60,11 @@ export default function MileageCheckPage() {
   const handleCheckout = async () => {
     if (!registration) {
       alert('Please enter a vehicle registration number');
+      return;
+    }
+
+    if (!stripePromise) {
+      alert('Payment system is not configured. Please contact support.');
       return;
     }
 

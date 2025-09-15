@@ -115,15 +115,9 @@ export default function TestimonialsSection() {
               onMouseLeave={() => setAutoPlay(true)}
             >
               {testimonials.map((testimonial, index) => (
-                <motion.div
+                <div
                   key={testimonial.id}
-                  initial={false}
-                  animate={{
-                    opacity: index === currentIndex ? 1 : 0,
-                    x: index === currentIndex ? 0 : index < currentIndex ? -100 : 100,
-                    display: index === currentIndex ? 'block' : 'none',
-                  }}
-                  transition={{ duration: 0.5, ease: 'easeInOut' }}
+                  className={`transition-all duration-500 ${index === currentIndex ? 'block opacity-100' : 'hidden opacity-0'}`}
                 >
                   {/* Rating Stars */}
                   <div className="flex gap-1 mb-6">
@@ -155,7 +149,7 @@ export default function TestimonialsSection() {
                       <p className="text-sm text-blue-600">{testimonial.company}</p>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
 

@@ -43,7 +43,7 @@ export default function ContactPage() {
       } else {
         setSubmitStatus('error');
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -74,7 +74,7 @@ export default function ContactPage() {
               Get in Touch
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Have questions about BIMTA membership or our services? We're here to help your business thrive in the motor trade industry.
+              Have questions about BIMTA membership or our services? We&apos;re here to help your business thrive in the motor trade industry.
             </p>
           </motion.div>
         </div>
@@ -145,7 +145,7 @@ export default function ContactPage() {
                     Send us a Message
                   </CardTitle>
                   <CardDescription>
-                    Fill out the form below and we'll get back to you within 24 hours
+                    Fill out the form below and we&apos;ll get back to you within 24 hours
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -263,7 +263,7 @@ export default function ContactPage() {
 
                     {submitStatus === 'success' && (
                       <div className="p-4 bg-green-50 border border-green-200 text-green-700 rounded-lg">
-                        Thank you for your message! We'll get back to you soon.
+                        Thank you for your message! We&apos;ll get back to you soon.
                       </div>
                     )}
 

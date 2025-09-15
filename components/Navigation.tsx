@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Menu, X, Car, User, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { GradientButton } from '@/components/ui/gradient-button';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -105,12 +106,12 @@ export default function Navigation() {
             <Button variant="ghost" size="sm" asChild>
               <Link href="/contact">Contact</Link>
             </Button>
-            <Button size="sm" asChild>
+            <GradientButton size="sm" asChild>
               <Link href="/login" className="flex items-center gap-2">
                 <User className="h-4 w-4" />
                 Member Login
               </Link>
-            </Button>
+            </GradientButton>
           </div>
         </div>
 
@@ -160,12 +161,12 @@ export default function Navigation() {
                   Contact
                 </Link>
                 <div className="pt-4 border-t">
-                  <Button className="w-full" asChild>
+                  <GradientButton className="w-full" asChild>
                     <Link href="/login" onClick={() => setIsOpen(false)}>
                       <User className="mr-2 h-4 w-4" />
                       Member Login
                     </Link>
-                  </Button>
+                  </GradientButton>
                 </div>
               </nav>
             </SheetContent>
