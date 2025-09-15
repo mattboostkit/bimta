@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* Custom gradient utilities for Tailwind */
 @layer utilities {
@@ -32,7 +30,7 @@
   --shadow-glow: 0 0 50px rgba(59, 130, 246, 0.3);
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 }
