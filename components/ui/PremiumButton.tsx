@@ -37,7 +37,7 @@ export default function PremiumButton({
 
   const variantClasses = {
     primary: 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800 shadow-lg hover:shadow-xl',
-    secondary: 'bg-white text-blue-900 border-2 border-blue-900 hover:bg-blue-50 shadow-md hover:shadow-lg',
+    secondary: 'bg-white text-blue-900 border-2 border-white hover:bg-gray-100 shadow-md hover:shadow-lg',
     ghost: 'bg-transparent text-blue-900 hover:bg-blue-50',
     gradient: 'bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 text-white hover:from-blue-700 hover:via-purple-700 hover:to-cyan-700 shadow-xl hover:shadow-2xl',
   };

@@ -17,9 +17,9 @@ export default function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   const floatingElements = [
-    { icon: Shield, label: 'Verified', position: 'top-20 left-10' },
-    { icon: Award, label: 'Trusted', position: 'top-40 right-20' },
-    { icon: CheckCircle, label: 'Accurate', position: 'bottom-32 left-20' },
+    { icon: Shield, label: 'Verified', position: 'top-32 left-10' },
+    { icon: Award, label: 'Trusted', position: 'top-48 right-10' },
+    { icon: CheckCircle, label: 'Accurate', position: 'bottom-40 left-16' },
   ];
 
   return (
@@ -80,7 +80,7 @@ export default function HeroSection() {
       ))}
 
       {/* Main Content */}
-      <motion.div style={{ opacity }} className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+      <motion.div style={{ opacity }} className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
         <div className="text-center">
           {/* Premium Badge */}
           <motion.div
@@ -99,10 +99,10 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl font-bold text-white mb-6"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
           >
             <span className="block">British Independent</span>
-            <span className="gradient-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">
+            <span className="block gradient-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">
               Motor Trade Association
             </span>
           </motion.h1>
