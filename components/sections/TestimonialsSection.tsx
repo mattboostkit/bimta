@@ -73,7 +73,7 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="py-20 bg-linear-to-b from-gray-50 to-white relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-repeat" style={{
@@ -105,7 +105,7 @@ export default function TestimonialsSection() {
         <div className="relative max-w-4xl mx-auto mb-20">
           <div className="relative bg-white rounded-3xl shadow-2xl p-8 md:p-12">
             {/* Quote Icon */}
-            <div className="absolute -top-6 left-12 w-12 h-12 bg-linear-to-br from-blue-600 to-cyan-600 rounded-full flex items-center justify-center">
+            <div className="absolute -top-6 left-12 w-12 h-12 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-full flex items-center justify-center">
               <Quote className="w-6 h-6 text-white" />
             </div>
 
@@ -140,7 +140,7 @@ export default function TestimonialsSection() {
 
                   {/* Author Info */}
                   <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-linear-to-br from-blue-600 to-cyan-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
                       {testimonial.name.split(' ').map(n => n[0]).join('')}
                     </div>
                     <div>
@@ -179,7 +179,7 @@ export default function TestimonialsSection() {
                   onClick={() => setCurrentIndex(index)}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
                     index === currentIndex
-                      ? 'w-8 bg-linear-to-r from-blue-600 to-cyan-600'
+                      ? 'w-8 bg-gradient-to-r from-blue-600 to-cyan-600'
                       : 'bg-gray-300 hover:bg-gray-400'
                   }`}
                 />
@@ -208,8 +208,8 @@ export default function TestimonialsSection() {
                 viewport={{ once: true }}
                 className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 text-center group"
               >
-                <div className="w-16 h-16 mx-auto mb-3 bg-linear-to-br from-blue-100 to-cyan-100 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <div className="w-10 h-10 bg-linear-to-br from-blue-600 to-cyan-600 rounded-full"></div>
+                <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-full"></div>
                 </div>
                 <p className="font-semibold text-gray-900 text-sm">{logo.name}</p>
                 <p className="text-xs text-gray-600 mt-1">{logo.description}</p>
@@ -224,7 +224,7 @@ export default function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="mt-20 bg-linear-to-r from-blue-600 to-cyan-600 rounded-3xl p-8 md:p-12 text-white"
+          className="mt-20 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-3xl p-8 md:p-12 text-white"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[

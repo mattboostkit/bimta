@@ -115,7 +115,7 @@ export default function MembersDirectoryPage() {
 
   return (
     <div>
-      <section className="bg-linear-to-br from-blue-900 to-blue-700 text-white py-20">
+      <section className="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

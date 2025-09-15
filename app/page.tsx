@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 
 // Dynamic imports for better performance
 const HeroSection = dynamic(() => import('@/components/sections/HeroSection'), {
-  loading: () => <div className="min-h-[90vh] bg-linear-to-br from-slate-50 via-blue-50 to-indigo-50" />,
+  loading: () => <div className="min-h-[90vh] bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50" />,
 });
 
 const VehicleCheckWidget = dynamic(() => import('@/components/sections/VehicleCheckWidget'));

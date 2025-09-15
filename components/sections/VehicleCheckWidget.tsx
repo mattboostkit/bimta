@@ -102,7 +102,7 @@ export default function VehicleCheckWidget() {
           className="max-w-4xl mx-auto"
         >
           <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
-            <div className="bg-linear-to-r from-blue-600 to-cyan-600 p-8">
+            <div className="bg-gradient-to-r from-blue-600 to-cyan-600 p-8">
               <div className="flex flex-col md:flex-row gap-4">
                 <div className="flex-1 relative">
                   <input
