@@ -13,9 +13,9 @@ const GradientButton = React.forwardRef<HTMLButtonElement, GradientButtonProps>(
   ({ className, variant = 'primary', size = 'md', asChild = false, children, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
     const variants = {
-      primary: 'bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white shadow-lg hover:shadow-xl',
-      secondary: 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white shadow-md hover:shadow-lg',
-      outline: 'border-2 border-blue-600 text-blue-600 hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-600 hover:text-white hover:border-transparent'
+      primary: 'bg-linear-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white shadow-lg hover:shadow-xl',
+      secondary: 'bg-linear-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white shadow-md hover:shadow-lg',
+      outline: 'border-2 border-blue-600 text-blue-600 hover:bg-linear-to-r hover:from-blue-600 hover:to-cyan-600 hover:text-white hover:border-transparent'
     }
 
     const sizes = {

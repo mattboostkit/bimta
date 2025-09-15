@@ -59,10 +59,10 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50">
+    <div className="min-h-screen bg-linear-to-br from-blue-50 via-white to-cyan-50">
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-cyan-600 opacity-10"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-blue-600 to-cyan-600 opacity-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -70,7 +70,7 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-linear-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
               Get in Touch
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -118,7 +118,7 @@ export default function ContactPage() {
               >
                 <Card className="h-full hover:shadow-lg transition-shadow duration-300 border-blue-100">
                   <CardContent className="p-6 text-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="w-12 h-12 bg-linear-to-br from-blue-600 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4">
                       <item.icon className="w-6 h-6 text-white" />
                     </div>
                     <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
@@ -141,7 +141,7 @@ export default function ContactPage() {
             >
               <Card className="shadow-xl border-blue-100">
                 <CardHeader>
-                  <CardTitle className="text-2xl bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                  <CardTitle className="text-2xl bg-linear-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
                     Send us a Message
                   </CardTitle>
                   <CardDescription>
@@ -276,7 +276,7 @@ export default function ContactPage() {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-[1.02]"
+                      className="w-full bg-linear-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-[1.02]"
                     >
                       {isSubmitting ? (
                         <span className="flex items-center justify-center">
@@ -326,7 +326,7 @@ export default function ContactPage() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-gradient-to-br from-blue-600 to-cyan-600 text-white border-0">
+              <Card className="bg-linear-to-br from-blue-600 to-cyan-600 text-white border-0">
                 <CardHeader>
                   <CardTitle className="text-xl text-white">Need Immediate Assistance?</CardTitle>
                 </CardHeader>

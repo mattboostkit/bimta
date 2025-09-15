@@ -17,9 +17,9 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-linear-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-slate-100 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] -z-10" />
+      <div className="absolute inset-0 bg-grid-slate-100 mask-[radial-gradient(ellipse_at_center,transparent_20%,black)] -z-10" />
 
       {/* Animated Gradient Orbs */}
       <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob" />
@@ -49,7 +49,7 @@ export default function HeroSection() {
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 mb-6"
           >
             British Independent
-            <span className="block bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="block bg-linear-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               Motor Trade Association
             </span>
           </motion.h1>
