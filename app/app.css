@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+/* Custom gradient utilities */
+@theme {
+  --color-blue-950: #172554;
+  --color-blue-900: #1e3a8a;
+  --color-cyan-900: #164e63;
+}
+
+@layer utilities {
+  .bg-linear-to-br {
+    background: linear-gradient(to bottom right, var(--tw-gradient-stops));
+  }
+  .bg-linear-to-r {
+    background: linear-gradient(to right, var(--tw-gradient-stops));
+  }
+  .bg-linear-to-b {
+    background: linear-gradient(to bottom, var(--tw-gradient-stops));
+  }
+  .bg-linear-to-t {
+    background: linear-gradient(to top, var(--tw-gradient-stops));
+  }
+}
